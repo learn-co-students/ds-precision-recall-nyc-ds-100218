@@ -11,6 +11,8 @@ $Recall = \frac{Number of True Positives}{Number of Predicted Positives}$
   
 $Accuracy = \frac{Number of True Positives + True Negative}{Total Observations}$
 
+![](./images/Precisionrecall.png)
+
 ![](./confusion_matrix/images/precision_recall.png)
 
 At times, we may wish to tune a classification algorithm to optimize against precison or recall rather then overall accuracy. For example, imagine the scenario of predicting whether or not a patient is at risk for cancer and should be brought in for additional testing. In cases such as this, we often may want to cast a slightly wider net, and it is much preferable to optimize for precision, the number of cancer positive cases, then it is to optimize recall, the percentage of our predicted cancer-risk patients who are indeed positive.
