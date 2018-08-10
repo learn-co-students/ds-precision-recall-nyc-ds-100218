@@ -4,12 +4,12 @@
 Now that we've started discussing classification, it's time to examine comparing our models to each other and choosing models of best fit. Previously in regression, we've been predicting values so it made sense to discuss error as a distance of how far off our estimates were. In classifying a binary variable however, we are either correct or incorrect. As a result, we tend to deconstruct this as how many false positives versus false negatives we come across.  
 In particular, we examine a few different specific measurements when evaluating the performance of a classification algorithm.  
   
-$Precision = \frac{Number of True Positives}{Number of Actual Total Positives}$    
+$Precision = \frac{\text{Number of True Positives}}{\text{Number of Actual Total Positives}}$    
   
 
-$Recall = \frac{Number of True Positives}{Number of Predicted Positives}$  
+$Recall = \frac{\text{Number of True Positives}}{\text{Number of Predicted Positives}}$  
   
-$Accuracy = \frac{Number of True Positives + True Negative}{Total Observations}$
+$Accuracy = \frac{\text{Number of True Positives + True Negatives}}{\text{Total Observations}}$
 
 ![](./images/Precisionrecall.png)
 
@@ -164,7 +164,7 @@ y = df.target
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 ```
 
-    /Users/matthew.mitchell/anaconda3/lib/python3.6/site-packages/sklearn/cross_validation.py:41: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+    /Users/lore.dirick/anaconda3/lib/python3.6/site-packages/sklearn/cross_validation.py:41: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
       "This module will be removed in 0.20.", DeprecationWarning)
 
 
@@ -201,12 +201,10 @@ def precision(y_hat, y):
     y_y_hat = list(zip(y, y_hat))
     tp = sum([1 for i in y_y_hat if i[0]==1 and i[1]==1])
     fp = sum([1 for i in y_y_hat if i[0]==0 and i[1]==1])
-    #tn = sum([1 for i in y_y_hat if i[0]==0 and i[1]==0])
-    #fn = sum([1 for i in y_y_hat if i[0]==1 and i[1]==0])
     return tp/float(tp+fp)
 ```
 
-## 3. Write a function to calculate the recall.
+## 4. Write a function to calculate the recall.
 
 
 ```python
@@ -214,13 +212,11 @@ def recall(y_hat, y):
     #Could also use confusion matrix
     y_y_hat = list(zip(y, y_hat))
     tp = sum([1 for i in y_y_hat if i[0]==1 and i[1]==1])
-    #fp = sum([1 for i in y_y_hat if i[0]==0 and i[1]==1])
-    #tn = sum([1 for i in y_y_hat if i[0]==0 and i[1]==0])
     fn = sum([1 for i in y_y_hat if i[0]==1 and i[1]==0])
     return tp/float(tp+fn)
 ```
 
-## 4. Write a function to calculate the accuracy.
+## 5. Write a function to calculate the accuracy.
 
 
 ```python
@@ -228,13 +224,11 @@ def accuracy(y_hat, y):
     #Could also use confusion matrix
     y_y_hat = list(zip(y, y_hat))
     tp = sum([1 for i in y_y_hat if i[0]==1 and i[1]==1])
-    #fp = sum([1 for i in y_y_hat if i[0]==0 and i[1]==1])
     tn = sum([1 for i in y_y_hat if i[0]==0 and i[1]==0])
-    #fn = sum([1 for i in y_y_hat if i[0]==1 and i[1]==0])
     return (tp+tn)/float(len(y_hat))
 ```
 
-# 5. Calculate the precision, recall and accuracy of your classifier.
+## 6. Calculate the precision, recall and accuracy of your classifier.
 
 
 ```python
@@ -267,7 +261,7 @@ print('Testing Accuracy: ', accuracy(y_hat_test, y_test))
     Testing Accuracy:  0.8289473684210527
 
 
-## 6. Comparing Precision Recall and Accuracy of Test vs Train Sets
+## 7. Comparing Precision Recall and Accuracy of Test vs Train Sets
 Plot the precision, recall and accuracy for test and train splits using different train set sizes. What do you notice?
 
 
@@ -310,7 +304,7 @@ plt.legend()
 
 
 
-    <matplotlib.legend.Legend at 0x1a22044f98>
+    <matplotlib.legend.Legend at 0x1a10606c88>
 
 
 
@@ -328,7 +322,7 @@ plt.legend()
 
 
 
-    <matplotlib.legend.Legend at 0x1a220a8400>
+    <matplotlib.legend.Legend at 0x1a139caa20>
 
 
 
@@ -346,7 +340,7 @@ plt.legend()
 
 
 
-    <matplotlib.legend.Legend at 0x1a221b76a0>
+    <matplotlib.legend.Legend at 0x1a13a8ca90>
 
 
 
