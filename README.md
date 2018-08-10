@@ -36,7 +36,7 @@ df = pd.read_csv()
 #Your code here
 ```
 
-## 3. Write a function to calculate the precision.
+## 3. Write a function to calculate the precision
 
 
 ```python
@@ -44,7 +44,7 @@ def precision(y_hat, y):
     #Your code here
 ```
 
-## 3. Write a function to calculate the recall.
+## 4. Write a function to calculate the recall
 
 
 ```python
@@ -52,10 +52,66 @@ def recall(y_hat, y):
     #Your code here
 ```
 
-## 4. Write a function to calculate the accuracy.
+## 5. Write a function to calculate the accuracy
 
 
 ```python
 def accuracy(y_hat, y):
     #Your code here
+```
+
+## 6. Calculate the precision, recall and accuracy of your classifier
+
+Do this for both the train and the test set.
+
+
+```python
+#Your code here
+```
+
+## 7. Comparing Precision Recall and Accuracy of Test vs Train Sets
+
+
+Plot the precision, recall and accuracy for test and train splits using different train set sizes. What do you notice?
+
+
+```python
+importimport  matplotlib.pyplotmatplot  as plt
+%matplotlib inline
+```
+
+
+```python
+training_Precision = []
+testing_Precision = []
+training_Recall = []
+testing_Recall = []
+training_Accuracy = []
+testing_Accuracy = []
+
+for i in range(10,95):
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size= None) #replace the "None" here
+    logreg = LogisticRegression(fit_intercept = False, C = 1e12)
+    model_log = None
+    y_hat_test = None
+    y_hat_train = None
+
+# 6 lines of code here
+```
+
+Create 3 scatter plots looking at the test and train precision in the first one, test and train recall in the second one, and testing and training accuracy in the third one.
+
+
+```python
+# code for test and train precision
+```
+
+
+```python
+# code for test and train recall
+```
+
+
+```python
+# code for test and train accuracy
 ```
